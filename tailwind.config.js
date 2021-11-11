@@ -6,7 +6,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
       fontFamily: {
-        'actor': ['"Outfit"', 'sans-serif'],
+        'actor': ['"Noto Sans"', 'sans-serif'],
       },
      extend: {
       backgroundImage: {
