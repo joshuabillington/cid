@@ -13,7 +13,7 @@ return (
         <p class="text-gray-900 font-light py-4 font-actor"> {text} </p>
     </div>
     <div> 
-        <img class="m-8 shadow-lg" src="https://res.cloudinary.com/ddd2lfnyh/image/upload/v1636672125/pexels-olia-danilevich-4974914_qvtvcp.jpg" />
+        <img class="m-8 shadow-lg rounded-sm" src="https://res.cloudinary.com/ddd2lfnyh/image/upload/v1636672125/pexels-olia-danilevich-4974914_qvtvcp.jpg" />
     </div>
 </div>
 
