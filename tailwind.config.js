@@ -1,6 +1,5 @@
 module.exports = {
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}',
-  './components/**/*.{js,ts,jsx,tsx}'],
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
       fontFamily: {
@@ -8,7 +7,7 @@ module.exports = {
       },
      extend: {
       backgroundImage: {
-        'hero-img': "url('https://res.cloudinary.com/ddd2lfnyh/image/upload/v1636601632/pexels-damir-mijailovic-3695238_cibnvs.jpg')",
+        'hero-img': "url('https://res.cloudinary.com/ddd2lfnyh/image/upload/v1636670670/pexels-olia-danilevich-4974915_jy2hdy.jpg')",
        }
      },
   },

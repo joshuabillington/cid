@@ -5,11 +5,11 @@ const Hero = ({text, title}) => {
 
 
 return (
-<div class="grid p-6 cols-2 bg-hero-img bg-fixed bg-cover" style={{height: 540}}> 
-<div class="mx-24 px-12 w-1/2 bg-white bg-opacity-50 my-12"> 
+<div class="grid p-6 grid-cols-2 bg-hero-img bg-fixed bg-cover" style={{height: 540}}> 
+<div class="ml-24 px-12 bg-white bg-opacity-80 my-12 py-12"> 
 <h1 class="text-4xl font-bold text-indigo pt-12 font-actor"> {title} </h1>
 <p class="text-indigo font-light py-4 font-actor"> {text} </p>
-<button class="bg-gray-900 p-2 px-12 text-gray-200 font-actor rounded-3xl"> Contact Us </button>
+<button class="bg-blue-500 p-2 px-12 text-gray-200 font-actor rounded-3xl shadow-lg font-semibold"> Contact Us </button>
 </div>
 <div>
 
