@@ -7,7 +7,7 @@ module.exports = {
       },
      extend: {
       backgroundImage: {
-        'hero-img': "url('https://res.cloudinary.com/ddd2lfnyh/image/upload/v1636670670/pexels-olia-danilevich-4974915_jy2hdy.jpg')",
+        'hero-img': "url('https://res.cloudinary.com/ddd2lfnyh/image/upload/c_scale,w_1200/v1636670670/pexels-olia-danilevich-4974915_jy2hdy.jpg')",
        }
      },
   },
