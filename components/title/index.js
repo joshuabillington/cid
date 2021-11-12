@@ -6,7 +6,7 @@ const Title = ({text, title}) => {
 
 return (
 
-<div class="px-24 p-6 grid grid-cols-2">
+<div class="px-24 p-6 grid md:grid-cols-2">
     <div class="p-6">
         <h1 class="text-4xl font-bold text-gray-900 pt-12 font-actor pb-2"> {title} </h1>
         <hr class="w-1/6 text-gray-900"/>
