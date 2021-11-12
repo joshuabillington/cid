@@ -1,12 +1,47 @@
-import { react } from 'react'; 
+import { react, useState } from 'react'; 
 import propTypes from 'prop-types'
 
 const Form = ({text, title}) => {
 
 
+const [fName, setFname] = useState('')
+const [lName, setLname] = useState('')
+const [email, setEmail] = useState('')
+const [message, setMessage] = useState('')
+const [submit, setSubmit] = useState(false)
+
+
+const handleSubmit = (e) => { 
+    e.preventDefault() 
+    console.log('Sending')
+    let data = {
+      name,
+      email,
+      message
+    }
+    fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json, text/plain, */*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }).then((res) => {
+        console.log('Response received')
+        if (res.status === 200) {
+          console.log('Response succeeded!')
+          setSubmitted(true)
+          setName('')
+          setEmail('')
+          setBody('')
+        }
+      })
+  }
+
+
 return (
-<div class="grid p-6 cols-2 bg-hero-img bg-fixed bg-cover" style={{height: 600}}> 
-<div class="mx-24 px-12 w-1/2 bg-gray-900 my-12"> 
+<div class="grid p-6 grid-cols-2 bg-hero-img bg-fixed bg-cover" style={{height: 650}} name="contact"> 
+<div class="mx-24 px-12 bg-gray-900 my-12 shadow-lg"> 
 <h1 class="text-4xl font-bold text-gray-200 pt-12 font-actor text-left mb-8"> {title} </h1>
 <div>
 <form class="w-full max-w-lg mb-12">
@@ -15,14 +50,21 @@ return (
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         First Name
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane" /> 
-      <p class="text-red-500 text-xs italic">Please fill out this field.</p>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" name="fName" type="text" onChange={(e)=>{setFname(e.target.value)}}  placeholder="Jane" required /> 
     </div>
     <div class="w-full md:w-1/2 px-3">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
         Last Name
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe" />
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" name="lName" onChange={(e)=>{setLname(e.target.value)}} type="text" placeholder="Doe" requried />
+    </div>
+  </div>
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-email">
+        Email
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-email" name="email" onChange={(e)=>{setEmail(e.target.value)}} type="email" placeholder="jane@example.com" pattern=".+@globex\.com" required />
     </div>
   </div>
   <div class="flex flex-wrap -mx-3 mb-6">
@@ -30,40 +72,15 @@ return (
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-message">
         Message
       </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" placeholder="******************" />
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-message" name="message" onChange={(e)=>{setMessage(e.target.value)}} type="text" placeholder="I need help with..." />
     </div>
   </div>
-  <div class="flex flex-wrap -mx-3 mb-2">
-    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
-        City
-      </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Albuquerque" /> 
-    </div>
-    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-        State
-      </label>
-      <div class="relative">
-        <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
-          <option>New Mexico</option>
-          <option>Missouri</option>
-          <option>Texas</option>
-        </select>
-        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-        </div>
-      </div>
-    </div>
-    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
-        Zip
-      </label>
-      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" placeholder="90210" />
-    </div>
-  </div>
+  <button class="bg-blue-500 px-3 py-2 w-full text-gray-200 font-actor rounded shadow-lg font-semibold" name="submit" onClick={(e)=>{handleSubmit(e)}}> Submit </button>
 </form>
 </div>
+</div>
+<div>
+
 </div>
 <div>
 
