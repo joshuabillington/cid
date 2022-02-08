@@ -1,7 +1,7 @@
 import { react, useState } from 'react'; 
 import propTypes from 'prop-types'
 
-const Form = ({text, title}) => {
+const Form = ({blurb, title}) => {
 
 
 const [fName, setFname] = useState('')
@@ -40,9 +40,10 @@ const handleSubmit = (e) => {
 
 
 return (
-<div class="grid p-6 grid-cols-2 bg-hero-img bg-fixed bg-cover" style={{height: 650}} name="contact"> 
+<div class="grid p-6 grid-cols-2 bg-hero-img bg-fixed bg-cover" style={{height: 775}} name="contact"> 
 <div class="mx-24 px-12 bg-gray-900 my-12 shadow-lg"> 
 <h1 class="text-4xl font-bold text-gray-200 pt-12 font-actor text-left mb-8"> {title} </h1>
+<p class="text-gray-200 mb-8"> {blurb}</p>
 <div>
 <form class="w-full max-w-lg mb-12">
   <div class="flex flex-wrap -mx-3 mb-6">
@@ -93,12 +94,12 @@ return (
 
 Form.propTypes = {
     title: String, 
-    text: String, 
+    blurb: String, 
 }
 
 Form.defaultProps = {
     title: 'Lets get in touch!',  
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    blurb: 'Do you need help with your current project?  Are you starting up a new venture?  We are ready to help with decades of technical experience to guide the way.  Contact us today.'
 }
 
 export default Form; 

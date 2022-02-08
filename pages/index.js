@@ -20,10 +20,10 @@ export default function Home() {
 
       <main>
         <Header />
-        <Hero title='Your XMPIE Specialists'/>
-        <Title />
+        <Hero title='Your XMPIE Specialists' text='Harnessing the power of efficient cross-media and variable data direct marketing.  Making it personal and effective.'/>
+        <Title title="Intelligent Designs That Work for You" text='Carswell Intelligent Designs specializes in building customized XMPie templates that adhere to your personalized business rules.  We’ll transform your old, static designs that are like a “one-trick pony” into dynamic documents that intuitively shift to be an all-in-one solution, customized to meet your branding needs.We have experience designing templates to produce endless outcomes based on personalized data and corporate requirements, using XMPie.  Your Carswell-customized documents will make full use of the powerful functions of XMPie, allowing the integration of automated graphics, text, and logos into our custom-built templates resulting in a user-friendly and efficient experience.'/>
         <Portfolio />
-        <Form />
+        <Form id="contact"/>
         
       </main>
 
